@@ -11,7 +11,7 @@ const Navbar = () => {
                 <li><a>Submenu 2</a></li>
             </ul>
         </li> */}
-        <li><NavLink to="/pagestoread">Pages to read</NavLink></li>
+        <li><NavLink to="/listedbooks">Pages to read</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100 mb-3">

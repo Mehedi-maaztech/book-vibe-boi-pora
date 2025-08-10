@@ -12,7 +12,7 @@ const Books = () => {
     return (
         <div className="py-20">
             <h2 className="text-4xl text-center font-bold">Books</h2>
-            <div className="grid md:grid-cols-3 sm:grid-cols-1 gap-3 pt-5">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-3 pt-5 m-5">
                 {
                     books.map(book => <Book key={book.bookId} book={book}></Book>)
                 }

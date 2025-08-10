@@ -22,4 +22,4 @@ const addToStorage = (id) => {
     }
 }
 
-export  { addToStorage };
+export  { addToStorage, getStoredList };
