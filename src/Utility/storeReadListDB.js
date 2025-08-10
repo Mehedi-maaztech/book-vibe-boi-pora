@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 const getStoredList = () => {
     const storedListStr = localStorage.getItem('read-list');
     if(storedListStr) {
@@ -13,12 +15,13 @@ const addToStorage = (id) => {
     const storedList = getStoredList();
 
     if(storedList.includes(id)){
-        console.log(id, "Alread exist in array");
+        toast("Alread exist in array")
     }
     else{
         storedList.push(id);
         const storedListStr = JSON.stringify(storedList);
         localStorage.setItem('read-list', storedListStr);
+        toast("Book has been added to read list");
     }
 }
 
