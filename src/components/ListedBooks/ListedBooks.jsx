@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import { getStoredList } from '../../Utility/storeReadListDB';
+import { getStoredList, getWishtList } from '../../Utility/storeReadListDB';
 import Book from '../Book/Book';
 
 const ListedBooks = () => {
     const allBooks = useLoaderData();
+    const [wishlist, setWishlist] = useState([]);
     const [readList, setReadlist] = useState([]);
     const [sort, setSort] = useState('');
 
@@ -15,9 +16,15 @@ const ListedBooks = () => {
         const storedReadListInt = storedReadList.map(id => parseInt(id));
 
         const readBookList = allBooks.filter(book => storedReadListInt.includes(book.bookId));
-        console.log(allBooks, storedReadList, storedReadListInt, readBookList);
+        //console.log(allBooks, storedReadList, storedReadListInt, readBookList);
 
         setReadlist(readBookList);
+
+        const storedWishtList = getWishtList();
+        const storedWishtListInt = storedWishtList.map(id => parseInt(id));
+        const wishlist = allBooks.filter(book => storedWishtListInt.includes(book.bookId))
+
+        setWishlist(wishlist);
     }, [])
 
     const handleSort = (sortType) => {
@@ -64,6 +71,11 @@ const ListedBooks = () => {
                 </TabPanel>
                 <TabPanel>
                     <h2>My wish list</h2>
+                    <div className='flex flex-wrap gap-10 m-5'>
+                        {
+                            wishlist.map(book => <Book key={book.bookId} book={book}></Book>)
+                        }
+                    </div>
                 </TabPanel>
             </Tabs>
         </div>

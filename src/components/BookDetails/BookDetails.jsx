@@ -1,5 +1,5 @@
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import { addToStorage } from "../../Utility/storeReadListDB";
+import { addToStorage, addToWishList } from "../../Utility/storeReadListDB";
 
 const BookDetails = () => {
     const data = useLoaderData();
@@ -27,6 +27,10 @@ const BookDetails = () => {
 
     const handleMarkAsRead = (id) => {
         addToStorage(id);
+    }
+
+    const handleWishList = (id) => {
+        addToWishList(id);
     }
     return (
         <div>
@@ -67,7 +71,7 @@ const BookDetails = () => {
                     </div>
                     <div className="card-actions">
                         <button onClick={() => handleMarkAsRead(bookId)} className="btn btn-base-100">Read</button> 
-                        <button className="btn btn-info text-white">Wishlist</button>
+                        <button className="btn btn-info text-white" onClick={()=> handleWishList(bookId)}>Wishlist</button>
                     </div>
                 </div>
             </div>
