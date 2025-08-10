@@ -9,7 +9,7 @@ const Banner = () => {
                     className="max-w-sm rounded-lg shadow-2xl"
                 />
                 <div>
-                    <h1 className="text-5xl font-bold">Box Office News!</h1>
+                    <h1 className="text-5xl font-bold">Books to freshen up your bookshelf</h1>
                     <p className="py-6">
                         A deep craving for knowledge draws us to books. We seek stories that stir the imagination and truths that challenge the mind. In their pages, we find both comfort and conflict—acceptance and rejection—all bound within the quiet power of words.
                     </p>

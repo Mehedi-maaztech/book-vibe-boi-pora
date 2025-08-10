@@ -1,4 +1,5 @@
 import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import { addToStorage } from "../../Utility/storeReadListDB";
 
 const BookDetails = () => {
     const data = useLoaderData();
@@ -22,6 +23,10 @@ const BookDetails = () => {
 
     const borderStyle = {
         borderBottom: "1px solid #999"
+    }
+
+    const handleMarkAsRead = (id) => {
+        addToStorage(id);
     }
     return (
         <div>
@@ -61,7 +66,7 @@ const BookDetails = () => {
                         </div>
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-base-100">Read</button> 
+                        <button onClick={() => handleMarkAsRead(bookId)} className="btn btn-base-100">Read</button> 
                         <button className="btn btn-info text-white">Wishlist</button>
                     </div>
                 </div>

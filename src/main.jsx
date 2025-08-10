@@ -28,8 +28,8 @@ const router = createBrowserRouter([
         element: <BookDetails></BookDetails>
       },
       {
-        path: '/pagestoread',
-        element : <PagesToRead></PagesToRead>
+        path: "/pagestoread",
+        element: <PagesToRead></PagesToRead>
       }
     ]
   },
